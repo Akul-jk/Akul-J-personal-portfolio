@@ -531,6 +531,18 @@ span {
     box-shadow: 0 0 20px rgba(0, 255, 65, 0.15);
 }
 
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 9%;
+    background: var(--bg-color);
+}
+
+.footer-text p {
+    font-size: 1.6rem;
+}
+
 /* Responsive Design / Media Queries */
 @media (max-width: 1200px) {
     html {
