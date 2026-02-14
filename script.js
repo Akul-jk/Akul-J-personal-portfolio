@@ -64,37 +64,6 @@ const typed = new Typed('.multiple-text', {
     loop: true
 });
 
-/* Project Filtering */
-const filterBtns = document.querySelectorAll('.filter-btn');
-const projectItems = document.querySelectorAll('.project-box');
-
-filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        // Remove active class from all
-        filterBtns.forEach(btn => btn.classList.remove('active'));
-        // Add active class to clicked
-        btn.classList.add('active');
-
-        const filterValue = btn.getAttribute('data-filter');
-
-        projectItems.forEach(item => {
-            if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-                item.style.display = 'block';
-                setTimeout(() => {
-                    item.style.opacity = '1';
-                    item.style.transform = 'scale(1)';
-                }, 100);
-            } else {
-                item.style.opacity = '0';
-                item.style.transform = 'scale(0.8)';
-                setTimeout(() => {
-                    item.style.display = 'none';
-                }, 300);
-            }
-        });
-    });
-});
-
 /* Contact Form Toast Logic */
 const form = document.getElementById('contact-form');
 const toast = document.getElementById('toast');
