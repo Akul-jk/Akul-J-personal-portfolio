@@ -437,34 +437,34 @@ span {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.6);
     z-index: -1;
 }
 
-.about-img img {
-    width: 35vw;
-    border-radius: 16px;
-    /* Soft rounded corners */
-    border: 1px solid var(--main-color);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    transition: 0.3s;
-}
 
-box-shadow: 0 10px 40px rgba(16, 185, 129, 0.2);
-}
 
 /* Code Editor Style About Section */
 .about-content {
     font-family: 'Consolas', 'Courier New', monospace;
-    background: rgba(17, 24, 39, 0.9);
+    background: rgba(17, 24, 39, 0.8);
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     padding: 2.5rem;
     border-radius: 1rem;
     border-left: 4px solid var(--main-color);
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    max-width: 800px;
+    margin: 0 auto;
+    /* Center it */
+    text-align: center;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
     position: relative;
     overflow: hidden;
-    max-width: 600px;
-    /* Constrain width for better look */
+}
+
+.about-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px rgba(16, 185, 129, 0.2);
+    border-left-color: var(--accent-color);
 }
 
 .about-content::before {
