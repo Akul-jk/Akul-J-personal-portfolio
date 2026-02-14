@@ -1,21 +1,22 @@
-/* Google Fonts - Import Poppins and Orbitron */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-    --bg-color: #0a192f;
-    /* Deep Navy */
-    --second-bg-color: #112240;
-    /* Lighter Navy */
-    --text-color: #8892b0;
-    /* Slate Grey */
-    --heading-color: #ccd6f6;
-    /* Lightest Slate */
-    --main-color: #64ffda;
-    /* Cyber Teal */
-    --accent-color: #00f3ff;
-    /* Cyan Accent */
-    --glass-bg: rgba(17, 34, 64, 0.7);
-    --glass-border: rgba(100, 255, 218, 0.1);
+    --bg-color: #0f172a;
+    /* Slate 900 - Deep Professional Blue-Grey */
+    --second-bg-color: #1e293b;
+    /* Slate 800 - Lighter Blue-Grey */
+    --text-color: #cbd5e1;
+    /* Slate 300 - Soft Grey/White */
+    --heading-color: #f1f5f9;
+    /* Slate 100 - White */
+    --main-color: #38bdf8;
+    /* Sky 400 - Professional Light Blue */
+    --accent-color: #0ea5e9;
+    /* Sky 500 - Deeper Blue */
+    --glass-bg: rgba(30, 41, 59, 0.95);
+    /* Deeply solid/blurred slate */
+    --glass-border: rgba(148, 163, 184, 0.1);
+    /* Subtle border */
 }
 
 * {
@@ -43,14 +44,8 @@ body {
 
 /* Neural Network Canvas */
 #neural-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    opacity: 0.3;
-    /* Subtle background */
+    display: none;
+    /* Removed for minimalist look */
 }
 
 /* Scrollbar */
@@ -87,8 +82,9 @@ body {
     font-size: 2.5rem;
     color: var(--heading-color);
     font-weight: 700;
-    font-family: 'Space Grotesk', sans-serif;
-    letter-spacing: 1px;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: -0.5px;
+    /* Tighter, more modern */
 }
 
 .navbar a {
@@ -142,14 +138,15 @@ span {
 /* Buttons */
 .btn {
     display: inline-block;
-    padding: 1rem 2.8rem;
-    background: transparent;
-    border: 1px solid var(--main-color);
-    border-radius: 4px;
-    /* Sharper edges for cyber feel */
+    padding: 1rem 2.5rem;
+    background: var(--main-color);
+    border: none;
+    border-radius: 6px;
+    /* Standard rounded button */
     font-size: 1.6rem;
-    color: var(--main-color);
-    letter-spacing: 0.1rem;
+    color: #0f172a;
+    /* Dark text on bright button for contrast */
+    letter-spacing: 0.5px;
     font-weight: 600;
     transition: 0.3s;
     position: relative;
@@ -158,20 +155,21 @@ span {
 }
 
 .btn:hover {
-    background: rgba(100, 255, 218, 0.1);
-    box-shadow: 0 0 20px rgba(100, 255, 218, 0.2);
-    transform: translateY(-3px);
+    background: var(--accent-color);
+    box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+    transform: translateY(-2px);
 }
 
 .btn.secondary {
-    border-color: var(--heading-color);
-    color: var(--heading-color);
+    background: transparent;
+    border: 2px solid var(--text-color);
+    color: var(--text-color);
 }
 
 .btn.secondary:hover {
-    background: rgba(204, 214, 246, 0.1);
-    border-color: var(--main-color);
-    color: var(--main-color);
+    background: var(--text-color);
+    color: var(--bg-color);
+    border-color: var(--text-color);
 }
 
 /* Home */
@@ -191,10 +189,12 @@ span {
 
 .home-content h1 {
     font-size: 6rem;
-    font-weight: 700;
+    font-weight: 800;
+    /* Bolder */
     line-height: 1.1;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Inter', sans-serif;
     color: var(--heading-color);
+    margin-bottom: 1rem;
 }
 
 .home-content p {
@@ -231,19 +231,19 @@ span {
 .home-img img {
     width: 35vw;
     border-radius: 20px;
-    /* Softer corners, not round or circle */
-    box-shadow: 0 0 30px rgba(100, 255, 218, 0.2);
-    border: 2px solid var(--glass-border);
-    animation: floatImage 4s ease-in-out infinite;
-    mix-blend-mode: luminosity;
-    /* Professional monochromatic look */
-    transition: 0.3s;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    /* Soft shadow */
+    border: none;
+    animation: floatImage 6s ease-in-out infinite;
+    /* Slower float */
+    filter: grayscale(20%);
+    /* Slight desaturation for mood */
+    transition: 0.5s;
 }
 
 .home-img img:hover {
-    mix-blend-mode: normal;
-    /* Reveal color on hover */
-    border-color: var(--main-color);
+    filter: grayscale(0%);
+    transform: scale(1.02);
 }
 
 @keyframes floatImage {
@@ -265,8 +265,9 @@ span {
     text-align: center;
     font-size: 4rem;
     margin-bottom: 5rem;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Inter', sans-serif;
     color: var(--heading-color);
+    font-weight: 700;
 }
 
 .heading span {
@@ -317,31 +318,34 @@ span {
     flex: 1 1 30rem;
     background: var(--second-bg-color);
     padding: 3rem 2rem 4rem;
-    border-radius: 10px;
+    border-radius: 12px;
     text-align: center;
-    border: 1px solid transparent;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    /* Very subtle border */
     transition: 0.3s ease;
     cursor: default;
-    /* Remove pointer if not clickable */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .skill-box:hover {
-    background: #152745;
-    /* Slightly lighter on hover */
-    transform: translateY(-5px);
+    background: #253347;
+    /* Slightly lighter slate */
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .skill-box i {
-    font-size: 6rem;
+    font-size: 5rem;
     color: var(--main-color);
     margin-bottom: 2rem;
 }
 
 .skill-box h3 {
-    font-size: 2.4rem;
+    font-size: 2.2rem;
     color: var(--heading-color);
     margin-bottom: 1rem;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
 }
 
 .skill-box p {
@@ -420,7 +424,7 @@ span {
     /* Assuming gallery follows same structure */
     font-size: 2.4rem;
     color: var(--heading-color);
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 700;
 }
 
@@ -483,14 +487,8 @@ span {
     font-weight: 700;
     line-height: 1.1;
     font-family: 'Space Grotesk', sans-serif;
-    background: linear-gradient(to right, #fff, var(--main-color), #fff);
-    background-size: 200% auto;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: gradientText 3s linear infinite;
-    position: relative;
     color: var(--heading-color);
+    margin-bottom: 2rem;
 }
 
 @keyframes gradientText {
@@ -677,152 +675,12 @@ span {
     }
 }
 
-/* Glitch Effect */
-.glitch {
-    position: relative;
-    color: var(--heading-color);
-}
-
-.glitch::before,
-.glitch::after {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.glitch::before {
-    left: 2px;
-    text-shadow: -1px 0 #00ff41;
-    clip: rect(44px, 450px, 56px, 0);
-    animation: glitch-anim 5s infinite linear alternate-reverse;
-}
-
-.glitch::after {
-    left: -2px;
-    text-shadow: -1px 0 #00f3ff;
-    clip: rect(44px, 450px, 56px, 0);
-    animation: glitch-anim2 5s infinite linear alternate-reverse;
-}
-
-@keyframes glitch-anim {
-    0% {
-        clip: rect(30px, 9999px, 10px, 0);
-    }
-
-    5% {
-        clip: rect(70px, 9999px, 90px, 0);
-    }
-
-    10% {
-        clip: rect(35px, 9999px, 15px, 0);
-    }
-
-    15% {
-        clip: rect(20px, 9999px, 50px, 0);
-    }
-
-    20% {
-        clip: rect(90px, 9999px, 100px, 0);
-    }
-
-    25% {
-        clip: rect(10px, 9999px, 40px, 0);
-    }
-
-    30% {
-        clip: rect(75px, 9999px, 5px, 0);
-    }
-
-    35% {
-        clip: rect(50px, 9999px, 25px, 0);
-    }
-
-    40% {
-        clip: rect(15px, 9999px, 85px, 0);
-    }
-
-    45% {
-        clip: rect(60px, 9999px, 30px, 0);
-    }
-
-    50% {
-        clip: rect(85px, 9999px, 60px, 0);
-    }
-
-    55% {
-        clip: rect(40px, 9999px, 10px, 0);
-    }
-
-    60% {
-        clip: rect(5px, 9999px, 95px, 0);
-    }
-
-    65% {
-        clip: rect(95px, 9999px, 50px, 0);
-    }
-
-    70% {
-        clip: rect(25px, 9999px, 75px, 0);
-    }
-
-    75% {
-        clip: rect(55px, 9999px, 20px, 0);
-    }
-
-    80% {
-        clip: rect(10px, 9999px, 65px, 0);
-    }
-
-    85% {
-        clip: rect(80px, 9999px, 40px, 0);
-    }
-
-    90% {
-        clip: rect(35px, 9999px, 85px, 0);
-    }
-
-    95% {
-        clip: rect(65px, 9999px, 15px, 0);
-    }
-
-    100% {
-        clip: rect(45px, 9999px, 55px, 0);
-    }
-}
-
-@keyframes glitch-anim2 {
-    0% {
-        clip: rect(65px, 9999px, 100px, 0);
-    }
-
-    100% {
-        clip: rect(10px, 9999px, 80px, 0);
-    }
-}
-
-/* Spotlight Effect */
+/* Remove Glitch and Spotlight CSS */
+.glitch,
 .spotlight {
-    position: relative;
-    background: var(--second-bg-color);
-    overflow: hidden;
+    position: static;
 }
 
-.spotlight::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y),
-            rgba(255, 255, 255, 0.06),
-            transparent 40%);
-    z-index: 3;
-    pointer-events: none;
-}
 
 @media (max-width: 450px) {
     html {
