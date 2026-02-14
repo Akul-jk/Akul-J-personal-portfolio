@@ -41,7 +41,7 @@ ScrollReveal({
 });
 
 ScrollReveal().reveal('.home-content, .heading', { origin: 'top' });
-ScrollReveal().reveal('.home-img, .services-container, .portfolio-box, .contact form', { origin: 'bottom' });
+ScrollReveal().reveal('.home-img, .skills-container, .project-box, .gallery-item, .contact form', { origin: 'bottom' });
 ScrollReveal().reveal('.home-content h1, .about-img', { origin: 'left' });
 ScrollReveal().reveal('.home-content p, .about-content', { origin: 'right' });
 
@@ -79,7 +79,7 @@ class Particle {
         this.directionX = (Math.random() - 0.5) * 1.5; // Speed
         this.directionY = (Math.random() - 0.5) * 1.5;
         this.size = Math.random() * 2 + 1; // Size of dots
-        this.color = '#00ff41'; // Green dots
+        this.color = '#64ffda'; // Cyber Teal dots
     }
 
     // Draw particle
@@ -134,7 +134,7 @@ function connect() {
 
             if (distance < (canvas.width / 7) * (canvas.height / 7)) {
                 opacityValue = 1 - (distance / 20000);
-                ctx.strokeStyle = 'rgba(0, 255, 65,' + opacityValue + ')';
+                ctx.strokeStyle = 'rgba(100, 255, 218,' + opacityValue + ')';
                 ctx.lineWidth = 1;
                 ctx.beginPath();
                 ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
@@ -147,3 +147,17 @@ function connect() {
 
 init();
 animate();
+
+/* Spotlight Effect Logic */
+const spotlightElements = document.querySelectorAll('.spotlight');
+
+spotlightElements.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+    });
+});
