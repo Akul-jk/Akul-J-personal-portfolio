@@ -14,7 +14,7 @@
 </head>
 
 <body>
-
+    <div id="scroll-progress"></div>
     <!-- Neural Network Background -->
     <canvas id="neural-canvas"></canvas>
 
@@ -101,13 +101,40 @@
 
     <section class="projects" id="projects">
         <h2 class="heading">Latest <span>Projects</span></h2>
+
+        <!-- Filter Buttons -->
+        <div class="project-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="dev">Development</button>
+            <button class="filter-btn" data-filter="ai">AI / ML</button>
+            <button class="filter-btn" data-filter="cyber">Cyber Security</button>
+        </div>
+
         <div class="projects-container">
-            <div class="project-box">
+            <div class="project-box" data-category="dev">
                 <img src="https://placehold.co/600x400/1a1d23/00ff41?text=Grocer+Ease" alt="Grocer Ease">
                 <div class="project-layer">
                     <h4>Grocer Ease</h4>
                     <p>Grocery Management System built using Java and JavaFX for efficient store management.</p>
                     <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+
+            <div class="project-box" data-category="ai">
+                <img src="https://placehold.co/600x400/1a1d23/10b981?text=AI+Image+Classifier" alt="AI Classifier">
+                <div class="project-layer">
+                    <h4>AI Image Classifier</h4>
+                    <p>Deep Learning model to classify images using CNNs and Python.</p>
+                    <a href="#"><i class="fas fa-code-branch"></i></a>
+                </div>
+            </div>
+
+            <div class="project-box" data-category="cyber">
+                <img src="https://placehold.co/600x400/1a1d23/34d399?text=Network+Sniffer" alt="Network Sniffer">
+                <div class="project-layer">
+                    <h4>Packt Sniffer</h4>
+                    <p>A Python-based network packet analysis tool for cyber forensics.</p>
+                    <a href="#"><i class="fas fa-shield-alt"></i></a>
                 </div>
             </div>
         </div>
@@ -160,7 +187,7 @@
         <div class="contact-wrapper">
             <p class="email-direct">Email: <a href="mailto:akulphotos697@gmail.com"
                     style="color: var(--main-color);">akulphotos697@gmail.com</a></p>
-            <form action="#">
+            <form id="contact-form">
                 <div class="input-box">
                     <input type="text" placeholder="Full Name" required>
                     <input type="email" placeholder="Email Address" required>
@@ -175,6 +202,19 @@
         </div>
     </section>
 
+    <!-- Toast Notification -->
+    <div id="toast">
+        <div class="toast-content">
+            <i class="fas fa-check-circle check"></i>
+            <div class="message">
+                <span class="text text-1">Success</span>
+                <span class="text text-2">Message Sent Successfully! 🚀</span>
+            </div>
+        </div>
+        <i class="fas fa-times close"></i>
+        <div class="progress"></div>
+    </div>
+
     <footer class="footer">
         <div class="footer-text">
             <p>Copyright &copy; 2024 by Akul Jayakumar | All Rights Reserved.</p>
@@ -184,6 +224,8 @@
 
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
+    <!-- Custom Scripts -->
+    <script src="canvas_bg.js"></script>
     <script src="script.js"></script>
 </body>
 
